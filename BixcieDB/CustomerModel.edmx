@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BixcieBoutiqueDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bb_person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="middle_initial" Type="varchar" MaxLength="6" />
+          <Property Name="suffix" Type="varchar" MaxLength="30" />
+          <Property Name="prefix" Type="varchar" MaxLength="30" />
+          <Property Name="birthdate" Type="smalldatetime" />
+          <Property Name="preferred_name" Type="varchar" MaxLength="150" />
+          <Property Name="add_user" Type="int" />
+          <Property Name="add_date" Type="smalldatetime" />
+          <Property Name="chg_user" Type="int" />
+          <Property Name="chg_date" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="bb_person_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="person_id" Type="int" Nullable="false" />
+          <Property Name="type_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bb_type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="20" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+          <Property Name="add_user" Type="int" />
+          <Property Name="add_date" Type="smalldatetime" />
+          <Property Name="chg_user" Type="int" />
+          <Property Name="chg_date" Type="smalldatetime" />
+        </EntityType>
+        <EntityContainer Name="BixcieBoutiqueDBModelStoreContainer">
+          <EntitySet Name="bb_person" EntityType="Self.bb_person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bb_person_type" EntityType="Self.bb_person_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bb_type" EntityType="Self.bb_type" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BixcieBoutiqueDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bb_person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middle_initial" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="suffix" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prefix" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="birthdate" Type="DateTime" Precision="0" />
+          <Property Name="preferred_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="add_user" Type="Int32" />
+          <Property Name="add_date" Type="DateTime" Precision="0" />
+          <Property Name="chg_user" Type="Int32" />
+          <Property Name="chg_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="bb_person_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="person_id" Type="Int32" Nullable="false" />
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bb_type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="add_user" Type="Int32" />
+          <Property Name="add_date" Type="DateTime" Precision="0" />
+          <Property Name="chg_user" Type="Int32" />
+          <Property Name="chg_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="BixcieBoutiqueDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bb_person" EntityType="Self.bb_person" />
+          <EntitySet Name="bb_person_type" EntityType="Self.bb_person_type" />
+          <EntitySet Name="bb_type" EntityType="Self.bb_type" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BixcieBoutiqueDBModelStoreContainer" CdmEntityContainer="BixcieBoutiqueDBEntities">
+          <EntitySetMapping Name="bb_person">
+            <EntityTypeMapping TypeName="BixcieBoutiqueDBModel.bb_person">
+              <MappingFragment StoreEntitySet="bb_person">
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="middle_initial" ColumnName="middle_initial" />
+                <ScalarProperty Name="suffix" ColumnName="suffix" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="preferred_name" ColumnName="preferred_name" />
+                <ScalarProperty Name="add_user" ColumnName="add_user" />
+                <ScalarProperty Name="add_date" ColumnName="add_date" />
+                <ScalarProperty Name="chg_user" ColumnName="chg_user" />
+                <ScalarProperty Name="chg_date" ColumnName="chg_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bb_person_type">
+            <EntityTypeMapping TypeName="BixcieBoutiqueDBModel.bb_person_type">
+              <MappingFragment StoreEntitySet="bb_person_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bb_type">
+            <EntityTypeMapping TypeName="BixcieBoutiqueDBModel.bb_type">
+              <MappingFragment StoreEntitySet="bb_type">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="add_user" ColumnName="add_user" />
+                <ScalarProperty Name="add_date" ColumnName="add_date" />
+                <ScalarProperty Name="chg_user" ColumnName="chg_user" />
+                <ScalarProperty Name="chg_date" ColumnName="chg_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
